@@ -1,0 +1,10 @@
+/**:
+  ros__parameters:
+    base_length:
+    base_width:
+    base_height:
+    wheel_radius:
+    wheel_thickness:
+    caster_base_radius:
+    caster_wheel_radius:
+    center_to_wheel:
