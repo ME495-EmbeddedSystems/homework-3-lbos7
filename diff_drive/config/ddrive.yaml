@@ -2,9 +2,9 @@
   ros__parameters:
     base_length: 2.0
     base_width: 1.0
-    base_height: 
+    base_height: .25
     wheel_radius: .5
     wheel_thickness: .15
-    caster_base_radius: 
-    caster_wheel_radius:
+    caster_base_radius: .05
+    caster_wheel_radius: .1
     center_to_wheel: .5

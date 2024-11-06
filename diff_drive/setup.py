@@ -24,7 +24,9 @@ setup(
         ('share/' + package_name + '/env-hooks', ['env-hooks/diff_drive.dsv']),
         *recursive_files('share/' + package_name, "models"),
         *recursive_files('share/' + package_name, "worlds"),
-        ('share/' + package_name + '/launch', ['launch/ddrive.launch.xml'])
+        ('share/' + package_name + '/launch', ['launch/ddrive.launch.xml', 'launch/ddrive_rviz.launch.xml']),
+        ('share/' + package_name + '/config', ['config/ddrive.yaml', 'config/view_robot.rviz']),
+        ('share/' + package_name + '/urdf', ['urdf/ddrive.urdf.xacro'])
     ],
     install_requires=['setuptools'],
     zip_safe=True,
