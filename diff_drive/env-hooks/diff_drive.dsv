@@ -1,0 +1,2 @@
+prepend-non-duplicate;GZ_SIM_RESOURCE_PATH;share/diff_drive/models
+prepend-non-duplicate;GZ_SIM_RESOURCE_PATH;share/diff_drive/worlds
