@@ -128,42 +128,42 @@
     <joint name="base_to_left_wheel" type="continuous">
         <parent link="base_link"/>
         <child link="left_wheel"/>
-        <origin rpy="${-pi/2} 0 0" xyz="${center_to_wheel} ${.5*base_width} 0"/>
+        <origin rpy="${-pi/2} 0 0" xyz="${center_to_wheel} ${.5*(base_width + wheel_thickness)} 0"/>
         <axis xyz= "0 0 1"/>
     </joint>
 
     <joint name="base_to_right_wheel" type="continuous">
         <parent link="base_link"/>
         <child link="right_wheel"/>
-        <origin rpy="${-pi/2} 0 0" xyz="${center_to_wheel} ${-.5*base_width} 0"/>
+        <origin rpy="${-pi/2} 0 0" xyz="${center_to_wheel} ${-.5*(base_width + wheel_thickness)} 0"/>
         <axis xyz= "0 0 1"/>
     </joint>
 
     <joint name="base_to_bottom_caster" type="continuous">
         <parent link="base_link"/>
         <child link="bottom_caster_base"/>
-        <origin xyz="${center_to_wheel} 0 ${-(.5*base_height + .5*(wheel_radius - .5*base_height - 2*caster_wheel_radius))}"/>
+        <origin xyz="${-center_to_wheel} 0 ${-((wheel_radius - .5*base_height - 2*caster_wheel_radius)/2 + base_height/2)}"/>
         <axis xyz= "0 0 1"/>
     </joint>
 
     <joint name="base_to_top_caster" type="continuous">
         <parent link="base_link"/>
         <child link="top_caster_base"/>
-        <origin rpy="${pi} 0 0" xyz="${center_to_wheel} 0 ${.5*base_height + .5*(wheel_radius - .5*base_height - 2*caster_wheel_radius)}"/>
+        <origin rpy="${pi} 0 0" xyz="${-center_to_wheel} 0 ${((wheel_radius - .5*base_height - 2*caster_wheel_radius)/2 + base_height/2)}"/>
         <axis xyz= "0 0 1"/>
     </joint>
 
     <joint name="bottom_caster_to_wheel" type="continuous">
         <parent link="bottom_caster_base"/>
         <child link="bottom_caster_wheel"/>
-        <origin rpy="${-pi/2} 0 0" xyz="0 0 ${-(.5*wheel_radius + .5*(wheel_radius - .5*base_height - 2*caster_wheel_radius))}"/>
+        <origin rpy="${-pi/2} 0 0" xyz="0 0 ${-((wheel_radius - .5*base_height - 2*caster_wheel_radius)/2 + caster_wheel_radius/2)}"/>
         <axis xyz= "0 0 1"/>
     </joint>
 
     <joint name="top_caster_to_wheel" type="continuous">
         <parent link="top_caster_base"/>
         <child link="top_caster_wheel"/>
-        <origin rpy="${-pi/2} 0 0" xyz="0 0 ${-(.5*wheel_radius + .5*(wheel_radius - .5*base_height - 2*caster_wheel_radius))}"/>
+        <origin rpy="${-pi/2} 0 0" xyz="0 0 ${-((wheel_radius - .5*base_height - 2*caster_wheel_radius)/2 + caster_wheel_radius/2)}"/>
         <axis xyz= "0 0 1"/>
     </joint>
 

@@ -6,5 +6,5 @@
     wheel_radius: .5
     wheel_thickness: .15
     caster_base_radius: .05
-    caster_wheel_radius: .1
+    caster_wheel_radius: .125
     center_to_wheel: .5
