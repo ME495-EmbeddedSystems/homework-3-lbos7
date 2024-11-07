@@ -22,8 +22,8 @@
         <color rgba="1 1 1 1"/>
     </material>
 
-    <material name="black">
-        <color rgba="0 0 0 1"/>
+    <material name="green">
+        <color rgba="0 0.8 0 1"/>
     </material>
 
     <link name="base_link">
@@ -56,7 +56,7 @@
             <geometry>
                 <cylinder length="${wheel_thickness}" radius="${wheel_radius}"/>
             </geometry>
-            <material name="black"/>
+            <material name="green"/>
         </visual>
         <collision>
             <geometry>
@@ -81,7 +81,7 @@
             <geometry>
                 <cylinder length="${wheel_thickness}" radius="${wheel_radius}"/>
             </geometry>
-            <material name="black"/>
+            <material name="green"/>
         </visual>
         <collision>
             <geometry>

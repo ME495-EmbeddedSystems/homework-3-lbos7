@@ -1,13 +1,19 @@
 <launch>
 
-    <arg name="view_only" default="True" description="Only view the robot in rviz: False (default), True "/>
+    <arg name="view_only" default="true" description="Only view the robot in rviz: true (default), false "/>
 
     <node pkg="robot_state_publisher" exec="robot_state_publisher">
         <param name="robot_description" value="$(command '$(exec-in-pkg xacro xacro) $(find-pkg-share diff_drive)/urdf/ddrive.urdf.xacro')"/>
     </node>
 
-    <node pkg="joint_state_publisher_gui" exec="joint_state_publisher_gui" if="$(eval '\'$(var view_only)\'==\'True\'')"/>
+    <node pkg="joint_state_publisher_gui" exec="joint_state_publisher_gui" if="$(eval '\'$(var view_only)\'==\'true\'')"/>
     
-    <node pkg="rviz2" exec="rviz2" args="-d $(find-pkg-share diff_drive)/config/view_robot.rviz"/>
+    <node pkg="rviz2" exec="rviz2" args="-d $(find-pkg-share diff_drive)/config/view_robot.rviz" if="$(eval '\'$(var view_only)\'==\'true\'')">
+        <param name="use_sim_time" value="True"/>
+    </node>
+
+    <node pkg="rviz2" exec="rviz2" args="-d $(find-pkg-share diff_drive)/config/view_robot_with_odom.rviz" if="$(eval '\'$(var view_only)\'==\'false\'')">
+        <param name="use_sim_time" value="True"/>
+    </node>
 
 </launch>
