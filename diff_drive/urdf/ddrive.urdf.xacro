@@ -39,14 +39,14 @@
             </geometry>
         </collision>
         <inertial>
-            <mass value="2" />
+            <mass value="1" />
             <inertia
-                ixx="0.181"
+                ixx="0.09"
                 ixy="0"
                 ixz="0"
-                iyy="0.681"
+                iyy="0.09"
                 iyz="0"
-                izz="0.833"
+                izz="0.166"
             />
         </inertial>
     </link>
@@ -112,6 +112,7 @@
             <geometry>
                 <sphere radius="${caster_radius}"/>
             </geometry>
+            <contact_coefficients mu="0.0"/>
         </collision>
         <inertial>
             <mass value="1"/>
@@ -137,6 +138,7 @@
             <geometry>
                 <sphere radius="${caster_radius}"/>
             </geometry>
+            <contact_coefficients mu="0.0"/>
         </collision>
         <inertial>
             <mass value="1"/>
