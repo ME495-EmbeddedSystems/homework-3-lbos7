@@ -179,4 +179,6 @@
         <axis xyz= "0 0 1"/>
     </joint>
 
+    <xacro:include filename="$(find diff_drive)/urdf/ddrive.gazebo.xacro" />
+
 </robot>

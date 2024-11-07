@@ -26,7 +26,7 @@ setup(
         *recursive_files('share/' + package_name, "worlds"),
         ('share/' + package_name + '/launch', ['launch/ddrive.launch.xml', 'launch/ddrive_rviz.launch.xml']),
         ('share/' + package_name + '/config', ['config/ddrive.yaml', 'config/view_robot.rviz']),
-        ('share/' + package_name + '/urdf', ['urdf/ddrive.urdf.xacro'])
+        ('share/' + package_name + '/urdf', ['urdf/ddrive.urdf.xacro', 'urdf/ddrive.gazebo.xacro'])
     ],
     install_requires=['setuptools'],
     zip_safe=True,
