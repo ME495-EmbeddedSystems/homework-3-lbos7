@@ -38,6 +38,17 @@
                 <box size="${base_length} ${base_width} ${base_height}"/>
             </geometry>
         </collision>
+        <inertial>
+            <mass value="2" />
+            <inertia
+                ixx="0.181"
+                ixy="0"
+                ixz="0"
+                iyy="0.681"
+                iyz="0"
+                izz="0.833"
+            />
+        </inertial>
     </link>
 
     <link name="left_wheel">
@@ -52,6 +63,17 @@
                 <cylinder length="${wheel_thickness}" radius="${wheel_radius}"/>
             </geometry>
         </collision>
+        <inertial>
+            <mass value="1"/>
+            <inertia
+                ixx="0.064375"
+                ixy="0"
+                ixz="0"
+                iyy="0.064375"
+                iyz="0"
+                izz="0.125"
+            />
+        </inertial>
     </link>
 
     <link name="right_wheel">
@@ -66,6 +88,17 @@
                 <cylinder length="${wheel_thickness}" radius="${wheel_radius}"/>
             </geometry>
         </collision>
+        <inertial>
+            <mass value="1"/>
+            <inertia
+                ixx="0.064375"
+                ixy="0"
+                ixz="0"
+                iyy="0.064375"
+                iyz="0"
+                izz="0.125"
+            />
+        </inertial>
     </link>
 
     <link name="bottom_caster">
@@ -80,6 +113,17 @@
                 <sphere radius="${caster_radius}"/>
             </geometry>
         </collision>
+        <inertial>
+            <mass value="1"/>
+            <inertia
+                ixx="0.01225"
+                ixy="0"
+                ixz="0"
+                iyy="0.01225"
+                iyz="0"
+                izz="0.01225"
+            />
+        </inertial>
     </link>
 
     <link name="top_caster">
@@ -94,6 +138,17 @@
                 <sphere radius="${caster_radius}"/>
             </geometry>
         </collision>
+        <inertial>
+            <mass value="1"/>
+            <inertia
+                ixx="0.01225"
+                ixy="0"
+                ixz="0"
+                iyy="0.01225"
+                iyz="0"
+                izz="0.01225"
+            />
+        </inertial>
     </link>
 
     <joint name="base_to_left_wheel" type="continuous">
