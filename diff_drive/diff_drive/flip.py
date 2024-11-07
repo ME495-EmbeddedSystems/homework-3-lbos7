@@ -27,6 +27,14 @@ class State(Enum):
 
 
 class Flip(Node):
+    """
+    Node for controlling the ddrive robotf.
+
+    Publishes
+    ---------
+    cmd_vel : geometry_msgs/msg/Twist - the speed the turtle in turtlesim
+
+    """
 
     def __init__(self):
         super().__init__('flip')
@@ -50,6 +58,13 @@ class Flip(Node):
         self.start_time = self.get_clock().now().to_msg()
 
     def timer_callback(self):
+        """
+        Timer callback for controlling the turtle robot.
+
+        Publishes commands at a set frequency paramter (commands vary based on
+        robot state)
+
+        """
         if self.state != State.STOPPED:
             self.vel_pub.publish(
                 Twist(
