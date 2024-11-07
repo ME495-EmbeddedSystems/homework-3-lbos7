@@ -7,8 +7,7 @@
     <xacro:property name="base_height" value="${yaml_dict['base_height']}"/>
     <xacro:property name="wheel_radius" value="${yaml_dict['wheel_radius']}"/>
     <xacro:property name="wheel_thickness" value="${yaml_dict['wheel_thickness']}"/>
-    <xacro:property name="caster_base_radius" value="${yaml_dict['caster_base_radius']}"/>
-    <xacro:property name="caster_wheel_radius" value="${yaml_dict['caster_wheel_radius']}"/>
+    <xacro:property name="caster_radius" value="${yaml_dict['caster_radius']}"/>
     <xacro:property name="center_to_wheel" value="${yaml_dict['center_to_wheel']}"/>
 
     <material name="blue">
@@ -69,58 +68,30 @@
         </collision>
     </link>
 
-    <link name="bottom_caster_wheel">
+    <link name="bottom_caster">
         <visual>
             <geometry>
-                <cylinder length="${2*caster_base_radius}" radius="${caster_wheel_radius}"/>
-            </geometry>
-            <material name="black"/>
-        </visual>
-        <collision>
-            <geometry>
-                <cylinder length="${2*caster_base_radius}" radius="${caster_wheel_radius}"/>
-            </geometry>
-        </collision>
-    </link>
-
-    <link name="bottom_caster_base">
-        <visual>
-            <geometry>
-                <cylinder length="${wheel_radius - .5*base_height - 2*caster_wheel_radius}" radius="${caster_base_radius}"/>
+                <sphere radius="${caster_radius}"/>
             </geometry>
             <material name="red"/>
         </visual>
         <collision>
             <geometry>
-                <cylinder length="${wheel_radius - .5*base_height - 2*caster_wheel_radius}" radius="${caster_base_radius}"/>
+                <sphere radius="${caster_radius}"/>
             </geometry>
         </collision>
     </link>
 
-    <link name="top_caster_wheel">
+    <link name="top_caster">
         <visual>
             <geometry>
-                <cylinder length="${2*caster_base_radius}" radius="${caster_wheel_radius}"/>
-            </geometry>
-            <material name="black"/>
-        </visual>
-        <collision>
-            <geometry>
-                <cylinder length="${2*caster_base_radius}" radius="${caster_wheel_radius}"/>
-            </geometry>
-        </collision>
-    </link>
-
-    <link name="top_caster_base">
-        <visual>
-            <geometry>
-                <cylinder length="${wheel_radius - .5*base_height - 2*caster_wheel_radius}" radius="${caster_base_radius}"/>
+                <sphere radius="${caster_radius}"/>
             </geometry>
             <material name="blue"/>
         </visual>
         <collision>
             <geometry>
-                <cylinder length="${wheel_radius - .5*base_height - 2*caster_wheel_radius}" radius="${caster_base_radius}"/>
+                <sphere radius="${caster_radius}"/>
             </geometry>
         </collision>
     </link>
@@ -139,31 +110,17 @@
         <axis xyz= "0 0 1"/>
     </joint>
 
-    <joint name="base_to_bottom_caster" type="continuous">
+    <joint name="base_to_bottom_caster" type="fixed">
         <parent link="base_link"/>
-        <child link="bottom_caster_base"/>
-        <origin xyz="${-center_to_wheel} 0 ${-((wheel_radius - .5*base_height - 2*caster_wheel_radius)/2 + base_height/2)}"/>
+        <child link="bottom_caster"/>
+        <origin xyz="${-center_to_wheel} 0 ${-(base_height/2 + caster_radius)}"/>
         <axis xyz= "0 0 1"/>
     </joint>
 
-    <joint name="base_to_top_caster" type="continuous">
+    <joint name="base_to_top_caster" type="fixed">
         <parent link="base_link"/>
-        <child link="top_caster_base"/>
-        <origin rpy="${pi} 0 0" xyz="${-center_to_wheel} 0 ${((wheel_radius - .5*base_height - 2*caster_wheel_radius)/2 + base_height/2)}"/>
-        <axis xyz= "0 0 1"/>
-    </joint>
-
-    <joint name="bottom_caster_to_wheel" type="continuous">
-        <parent link="bottom_caster_base"/>
-        <child link="bottom_caster_wheel"/>
-        <origin rpy="${-pi/2} 0 0" xyz="0 0 ${-((wheel_radius - .5*base_height - 2*caster_wheel_radius)/2 + caster_wheel_radius/2)}"/>
-        <axis xyz= "0 0 1"/>
-    </joint>
-
-    <joint name="top_caster_to_wheel" type="continuous">
-        <parent link="top_caster_base"/>
-        <child link="top_caster_wheel"/>
-        <origin rpy="${-pi/2} 0 0" xyz="0 0 ${-((wheel_radius - .5*base_height - 2*caster_wheel_radius)/2 + caster_wheel_radius/2)}"/>
+        <child link="top_caster"/>
+        <origin xyz="${-center_to_wheel} 0 ${base_height/2 + caster_radius}"/>
         <axis xyz= "0 0 1"/>
     </joint>
 
