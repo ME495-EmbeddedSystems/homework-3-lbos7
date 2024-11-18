@@ -1,1 +1,4 @@
 Worked with: Harrison Bounds
+[1] "", Answers, Available: https://answers.gazebosim.org//question/16343/setting-friction-params/. [Accessed 7 November. 2024].
+[2] "Adding friction to model wheels - ROS Answers: Open Source Q", Answers, Available: https://answers.ros.org/question/345727/adding-friction-to-model-wheels/. [Accessed 7 November. 2024].
+[3] "", Sdformat, Available: https://sdformat.org/tutorials?tut=sdformat_urdf_extensions. [Accessed 17 November. 2024].

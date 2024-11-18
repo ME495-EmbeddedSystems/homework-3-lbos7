@@ -3,13 +3,9 @@
 
     <xacro:property name="ddrive_yaml" value="$(find diff_drive)/config/ddrive.yaml"/>
     <xacro:property name="yaml_dict" value="${xacro.load_yaml(ddrive_yaml)['/**']['ros__parameters']}"/>
-    <xacro:property name="base_length" value="${yaml_dict['base_length']}"/>
     <xacro:property name="base_width" value="${yaml_dict['base_width']}"/>
-    <xacro:property name="base_height" value="${yaml_dict['base_height']}"/>
     <xacro:property name="wheel_radius" value="${yaml_dict['wheel_radius']}"/>
     <xacro:property name="wheel_thickness" value="${yaml_dict['wheel_thickness']}"/>
-    <xacro:property name="caster_radius" value="${yaml_dict['caster_radius']}"/>
-    <xacro:property name="center_to_wheel" value="${yaml_dict['center_to_wheel']}"/>
 
     <gazebo reference="top_caster">
         <mu1>0.0</mu1>

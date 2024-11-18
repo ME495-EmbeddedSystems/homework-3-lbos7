@@ -1,12 +1,9 @@
 """A Node for controlling the ddrive robot in Gazebo."""
 
-from enum import Enum, auto
-
 from geometry_msgs.msg import Twist, Vector3
 
 import rclpy
 from rclpy.node import Node
-
 
 
 class Flip(Node):
@@ -20,6 +17,7 @@ class Flip(Node):
     """
 
     def __init__(self):
+        """Initialize the flip node."""
         super().__init__('flip')
         self.tmr = self.create_timer(1/100, self.timer_callback)
         self.vel_pub = self.create_publisher(Twist, 'cmd_vel', 10)
@@ -30,7 +28,7 @@ class Flip(Node):
         """
         Timer callback for controlling the turtle robot.
 
-        Publishes commands at a set frequency paramter 
+        Publishes commands at a set frequency paramter
 
         """
         if self.count > 300:
