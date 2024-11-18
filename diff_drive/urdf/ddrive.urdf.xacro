@@ -9,6 +9,15 @@
     <xacro:property name="wheel_thickness" value="${yaml_dict['wheel_thickness']}"/>
     <xacro:property name="caster_radius" value="${yaml_dict['caster_radius']}"/>
     <xacro:property name="center_to_wheel" value="${yaml_dict['center_to_wheel']}"/>
+    <xacro:property name="base_mass" value=".05"/>
+    <xacro:property name="wheel_mass" value="5"/>
+    <xacro:property name="caster_mass" value="0.001"/>
+    <xacro:property name="base_ixx" value="${base_mass*(base_width**2 + base_height**2)/12}"/>
+    <xacro:property name="base_iyy" value="${base_mass*(base_length**2 + base_height**2)/12}"/>
+    <xacro:property name="base_izz" value="${base_mass*(base_width**2 + base_length**2)/12}"/>
+    <xacro:property name="wheel_ixx" value="${wheel_mass*(3*(wheel_radius**2) + wheel_thickness**2)/12}"/>
+    <xacro:property name="wheel_izz" value="${wheel_mass*(wheel_radius**2)/2}"/>
+    <xacro:property name="caster_ixx" value="${caster_mass*2*(caster_radius**2)/5}"/>
 
     <material name="blue">
         <color rgba="0 0 0.8 1"/>
@@ -41,12 +50,12 @@
         <inertial>
             <mass value="1" />
             <inertia
-                ixx="0.09"
+                ixx="${base_ixx}"
                 ixy="0"
                 ixz="0"
-                iyy="0.09"
+                iyy="${base_iyy}"
                 iyz="0"
-                izz="0.166"
+                izz="${base_izz}"
             />
         </inertial>
     </link>
@@ -66,12 +75,12 @@
         <inertial>
             <mass value="1"/>
             <inertia
-                ixx="0.064375"
+                ixx="${wheel_ixx}"
                 ixy="0"
                 ixz="0"
-                iyy="0.064375"
+                iyy="${wheel_ixx}"
                 iyz="0"
-                izz="0.125"
+                izz="${wheel_izz}"
             />
         </inertial>
     </link>
@@ -91,12 +100,12 @@
         <inertial>
             <mass value="1"/>
             <inertia
-                ixx="0.064375"
+                ixx="${wheel_ixx}"
                 ixy="0"
                 ixz="0"
-                iyy="0.064375"
+                iyy="${wheel_ixx}"
                 iyz="0"
-                izz="0.125"
+                izz="${wheel_izz}"
             />
         </inertial>
     </link>
@@ -117,12 +126,12 @@
         <inertial>
             <mass value="1"/>
             <inertia
-                ixx="0.01225"
+                ixx="${caster_ixx}"
                 ixy="0"
                 ixz="0"
-                iyy="0.01225"
+                iyy="${caster_ixx}"
                 iyz="0"
-                izz="0.01225"
+                izz="${caster_ixx}"
             />
         </inertial>
     </link>
@@ -143,12 +152,12 @@
         <inertial>
             <mass value="1"/>
             <inertia
-                ixx="0.01225"
+                ixx="${caster_ixx}"
                 ixy="0"
                 ixz="0"
-                iyy="0.01225"
+                iyy="${caster_ixx}"
                 iyz="0"
-                izz="0.01225"
+                izz="${caster_ixx}"
             />
         </inertial>
     </link>

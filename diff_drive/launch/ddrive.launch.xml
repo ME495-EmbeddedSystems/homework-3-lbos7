@@ -25,8 +25,8 @@
 
     <node pkg="ros_gz_sim" exec="create" args="-topic /robot_description -x -3.0 -z 0.6"/>
 
-    <!-- <node pkg="diff_drive" exec="flip">
+    <node pkg="diff_drive" exec="flip">
         <remap from="cmd_vel" to="cmd_vel"/>
-    </node> -->
+    </node>
 
 </launch>

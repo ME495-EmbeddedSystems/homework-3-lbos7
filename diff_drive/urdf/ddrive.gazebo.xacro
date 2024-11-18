@@ -11,6 +11,16 @@
     <xacro:property name="caster_radius" value="${yaml_dict['caster_radius']}"/>
     <xacro:property name="center_to_wheel" value="${yaml_dict['center_to_wheel']}"/>
 
+    <gazebo reference="top_caster">
+        <mu1>0.0</mu1>
+        <mu2>0.0</mu2>
+    </gazebo>
+
+    <gazebo reference="bottom_caster">
+        <mu1>0.0</mu1>
+        <mu2>0.0</mu2>
+    </gazebo>
+
     <gazebo>
         <plugin
             filename="libgz-sim-diff-drive-system.so"
@@ -24,9 +34,9 @@
             <child_frame_id>base_link</child_frame_id>
         </plugin>
 
-      <plugin
-          filename="libgz-sim-joint-state-publisher-system.so"
-          name="gz::sim::systems::JointStatePublisher">
-          </plugin>
+        <plugin
+            filename="libgz-sim-joint-state-publisher-system.so"
+            name="gz::sim::systems::JointStatePublisher">
+        </plugin>
      </gazebo>
 </robot>
